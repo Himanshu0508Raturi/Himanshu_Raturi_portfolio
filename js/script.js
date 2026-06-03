@@ -136,35 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
   checkSkillsPosition(); // Check on load
 
   // ========================================
-  // Contact Form Submission
-  // ========================================
-  const contactForm = document.getElementById("contactForm");
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      // Get form data
-      const formData = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value,
-      };
-
-      // Here you would typically send the data to a server
-      // For now, we'll just show a success message
-      console.log("Form submitted:", formData);
-
-      // Show success message
-      alert("Thank you for your message! I will get back to you soon.");
-
-      // Reset form
-      contactForm.reset();
-    });
-  }
-
-  // ========================================
   // Animate Elements on Scroll (Fade In)
   // ========================================
   const animateOnScroll = () => {

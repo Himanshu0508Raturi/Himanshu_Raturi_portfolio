@@ -119,10 +119,10 @@ Update your name and title across all pages:
 - **Bootstrap Icons** - Icon library
 
 ### Contact Form
-The contact form currently displays an alert message and logs data to the console. To make it functional:
-- Integrate with EmailJS (recommended for beginners)
-- Use a backend service (Node.js + Nodemailer)
-- Implement a third-party form service (Formspree, Netlify Forms)
+The contact form now submits messages through a hosted form-delivery service so messages can reach your inbox from a static site.
+- The form posts directly to your email address through FormSubmit
+- First-time submissions may require a confirmation step from the service
+- If you want full control later, you can swap it for EmailJS or a backend API
 
 ### Navigation
 The JavaScript handles both multi-page navigation (.html links) and smooth scrolling for anchor links on the same page.
