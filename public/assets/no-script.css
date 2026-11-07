@@ -1,0 +1,41 @@
+/* Native anchors, details, links, and the contact form remain usable without JS. */
+.menu-toggle,
+.filters,
+.motion-toggle,
+.copy-email,
+.dialog-close {
+  display: none !important;
+}
+.site-header {
+  height: auto;
+  min-height: 96px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+.site-header #main-nav {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 12px 20px;
+  padding: 0;
+  margin-left: auto;
+  border: 0;
+  box-shadow: none;
+  font-size: 12px;
+}
+.case-dialog:target {
+  display: block;
+  position: relative;
+  margin: 40px auto;
+  max-height: none;
+}
+@media (max-width: 760px) {
+  .site-header #main-nav {
+    width: 100%;
+    margin: 10px 0 0;
+  }
+  .site-header #main-nav .nav-contact {
+    margin: 0;
+  }
+}
