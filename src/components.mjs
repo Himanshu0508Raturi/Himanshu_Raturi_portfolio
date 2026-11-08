@@ -19,9 +19,10 @@ const tags = (items) =>
 export function navigation() {
   return `<a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><a class="wordmark" href="#top" aria-label="Himanshu Raturi, home">h<span class="wordmark-dot">.</span>r<span class="wordmark-dot">.</span></a>
-  <a class="header-identity" href="#about">HIMANSHU RATURI<span>AI & FULL STACK DEVELOPER</span></a>
+  <a class="header-identity" href="#about">HIMANSHU RATURI<span>AI & Backend Developer</span></a>
   <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation"><span></span><span></span></button>
-  <nav id="main-nav" aria-label="Main navigation"><a href="#work">Work <sup>05</sup></a><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#journey">Journey</a><a class="nav-contact" href="#contact">Let’s talk ${arrow}</a></nav></header>`;
+  <nav id="main-nav" aria-label="Main navigation"><a href="#work">Work <sup>05</sup></a><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#journey">Journey</a><a class="nav-contact" href="#contact">Let’s talk ${arrow}</a></nav>
+  <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Switch to dark mode"><svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.4 14A8.5 8.5 0 0 1 10 3.6 8.5 8.5 0 1 0 20.4 14Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button></header>`;
 }
 
 export function hero() {
@@ -32,7 +33,7 @@ export function hero() {
   <div class="hero-composition"><h1 id="hero-heading"><span class="headline-line">BEYOND</span><span class="headline-line second-line">THE <em>CODE</em><span class="headline-period">.</span></span></h1>
   <div class="neural-stage"><canvas id="neural-canvas" aria-hidden="true"></canvas><span class="orbit-label orbit-label-top">FIG. 01 — A CONNECTED MIND</span><span class="orbit-label orbit-label-bottom">IDEAS → SYSTEMS → IMPACT</span><button class="motion-toggle" aria-pressed="false" aria-label="Pause visual animation">Pause motion <span aria-hidden="true">Ⅱ</span></button></div>
   <div class="hero-side-note" aria-hidden="true">THINK DEEPLY. BUILD WITH PURPOSE.</div></div>
-  <div class="hero-bottom"><div class="hero-intro"><p class="small-label">HELLO, I’M HIMANSHU RATURI.</p><p>I turn complex ideas into<br><strong>intelligent digital experiences.</strong></p><p class="hero-role">AI & Full Stack Developer <span>/</span> LLM Engineer</p></div>
+  <div class="hero-bottom"><div class="hero-intro"><p class="small-label">HELLO, I’M HIMANSHU RATURI.</p><p>I turn complex ideas into<br><strong>intelligent digital experiences.</strong></p><p class="hero-role">AI & Backend Developer <span>/</span> LLM Engineer</p></div>
   <div class="hero-actions"><a class="button button-dark" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a class="text-link" href="${resumeUrl}" ${person.resume ? "download" : ""}>${person.resume ? "Download résumé" : "Request résumé"} ${arrow}</a></div>
   <a class="scroll-cue" href="#work"><span class="scroll-circle" aria-hidden="true">↓</span><span>SCROLL TO<br>EXPLORE</span></a></div>
   </section><div class="discipline-strip" aria-hidden="true"><span>INTELLIGENT SYSTEMS</span><i>✳</i><span>HUMAN-CENTERED THINKING</span><i>✳</i><span>ENDLESS CURIOSITY</span><i>✳</i><span>BUILT WITH INTENTION</span></div>`;

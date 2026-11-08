@@ -1,4 +1,7 @@
 import { createNeuralSculpture } from "./neural.js";
+import { initializeTheme } from "./theme.js";
+
+initializeTheme();
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const menuButton = document.querySelector(".menu-toggle");

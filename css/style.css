@@ -1,3 +1,5 @@
+@import "./theme.css";
+
 @font-face {
   font-family: Manrope;
   src: url("/assets/manrope.woff2") format("woff2");
@@ -13,6 +15,8 @@
   font-display: swap;
 }
 :root {
+  color-scheme: light;
+  --sculpture-rgb: 195, 54, 31;
   --paper: #f4f2eb;
   --paper-dark: #e9e6dd;
   --ink: #24251f;
@@ -704,7 +708,7 @@ nav sup {
   aspect-ratio: 3/3.8;
   width: 100%;
   object-fit: cover;
-  filter: grayscale(1);
+  filter: none;
   border-radius: 50% 50% 0 0;
 }
 .portrait-note {

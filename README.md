@@ -1,6 +1,6 @@
 # Himanshu Raturi — Beyond the Code
 
-An editorial portfolio for an AI & Full Stack Developer and LLM Engineer. The redesign uses an interactive neural sculpture, five expandable project stories, a skills explorer, education and credentials, and direct contact actions.
+An editorial portfolio for an AI & Backend Developer and LLM Engineer. The redesign uses an interactive neural sculpture, five expandable project stories, a skills explorer, education and credentials, and direct contact actions.
 
 ## Local development
 
@@ -12,7 +12,9 @@ npm run build
 npm run preview
 ```
 
-Open `http://127.0.0.1:4173`. After editing, rebuild and reload the browser. `npm run dev` is an alias for the same production-output preview server. `PORT` can override the default port.
+Open the Local URL printed in the terminal (normally `http://127.0.0.1:4173`). If that port is occupied, the server automatically tries the next free port. `PORT` can override the starting port.
+
+For a single command that builds and serves the site, use `npm run dev`. After editing source files, rebuild and reload the browser; there is no live-reload watcher.
 
 ```sh
 npm test
@@ -55,6 +57,7 @@ The existing FormSubmit destination is retained in the optional contact form. De
 - Semantic headings, skip link, labeled controls, visible focus, native dialogs, focus restoration, and keyboard dismissal.
 - Mobile navigation closes on selection, Escape, focus leaving the header, or an outside click.
 - Reduced-motion support, a manual animation pause, and rendering suspended when the sculpture is offscreen or the tab is hidden.
+- Light/dark mode toggle with a saved preference, dark default, matching neural sculpture, and palette selection before first paint. The portrait retains its original colors in both modes.
 - Without JavaScript, content, skills disclosures, project anchors, contact links, and native form submission remain available.
 
 ## Existing Vercel deployment

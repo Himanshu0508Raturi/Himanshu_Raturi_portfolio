@@ -1,6 +1,9 @@
 /** A projected 3D point sculpture. No WebGL dependency or network resources. */
 export function createNeuralSculpture(canvas, toggle, motionPreference) {
   const context = canvas.getContext("2d");
+  let sculptureColor =
+    getComputedStyle(canvas).getPropertyValue("--sculpture-rgb").trim() ||
+    "195,54,31";
   if (!context) {
     toggle.hidden = true;
     return;
@@ -69,14 +72,14 @@ export function createNeuralSculpture(canvas, toggle, motionPreference) {
       const p = projected[i];
       const next =
         projected[Math.floor(i / segments) * segments + ((i + 1) % segments)];
-      context.strokeStyle = `rgba(195,54,31,${p.alpha * 0.6})`;
+      context.strokeStyle = `rgba(${sculptureColor},${p.alpha * 0.6})`;
       context.beginPath();
       context.moveTo(p.x, p.y);
       context.lineTo(next.x, next.y);
       context.stroke();
       if (i % 3 === 0) {
         const across = projected[(i + segments) % projected.length];
-        context.strokeStyle = `rgba(195,54,31,${p.alpha * 0.22})`;
+        context.strokeStyle = `rgba(${sculptureColor},${p.alpha * 0.22})`;
         context.beginPath();
         context.moveTo(p.x, p.y);
         context.lineTo(across.x, across.y);
@@ -85,7 +88,7 @@ export function createNeuralSculpture(canvas, toggle, motionPreference) {
     }
     for (let i = 0; i < projected.length; i += 2) {
       const p = projected[i];
-      context.fillStyle = `rgba(195,54,31,${p.alpha})`;
+      context.fillStyle = `rgba(${sculptureColor},${p.alpha})`;
       context.beginPath();
       context.arc(p.x, p.y, p.z > 0.25 ? 1 : 0.65, 0, Math.PI * 2);
       context.fill();
@@ -156,5 +159,11 @@ export function createNeuralSculpture(canvas, toggle, motionPreference) {
   }).observe(canvas);
   new ResizeObserver(resize).observe(canvas);
   updateToggle();
+  window.addEventListener("portfolio-theme-change", () => {
+    sculptureColor =
+      getComputedStyle(canvas).getPropertyValue("--sculpture-rgb").trim() ||
+      "195,54,31";
+    start();
+  });
   resize();
 }

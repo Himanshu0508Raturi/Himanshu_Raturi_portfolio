@@ -43,6 +43,25 @@ const server = createServer(async (req, res) => {
     res.writeHead(404, { "Content-Type": "text/plain" }).end("Page not found");
   }
 });
-server.listen(Number(process.env.PORT || 4173), "127.0.0.1", () =>
-  console.log(`Local: http://127.0.0.1:${server.address().port}`),
-);
+let port = Number(process.env.PORT || 4173);
+let retries = 0;
+if (!Number.isInteger(port) || port < 0 || port > 65535) {
+  console.error("PORT must be a number between 0 and 65535.");
+  process.exit(1);
+}
+server.on("error", (error) => {
+  if (error.code === "EADDRINUSE" && retries < 10 && port < 65535) {
+    console.log(`Port ${port} is in use; trying ${port + 1}…`);
+    retries += 1;
+    port += 1;
+    server.listen(port, "127.0.0.1");
+    return;
+  }
+  console.error(`Could not start the preview: ${error.message}`);
+  console.error("Try another port with the PORT environment variable.");
+  process.exitCode = 1;
+});
+server.on("listening", () => {
+  console.log(`Local: http://127.0.0.1:${server.address().port}`);
+});
+server.listen(port, "127.0.0.1");

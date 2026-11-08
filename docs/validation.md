@@ -3,7 +3,7 @@
 Validated locally before opening the pull request.
 
 - Production build succeeds with `npm run build`.
-- Seven Node tests pass: text contrast, anchor/dialog integrity, local resources, original project/credential content, historical routes, metadata/contact actions, and asset budgets.
+- Eight Node tests pass: text contrast, anchor/dialog integrity, local resources, original project/credential content, historical routes, metadata/contact actions, asset budgets, and a real occupied-port server regression test.
 - Browser widths checked: 320, 390, 768, 1024, 1440, and 1920 CSS pixels. No horizontal document overflow found.
 - All three project filters, all five case-study dialogs, native Escape dismissal and focus restoration, mobile navigation selection/closure, skills disclosures, manual motion pause, clipboard copy, and invalid-email/required-field validation checked in the browser.
 - `/home.html` renders the new homepage; `/about.html`, `/projects.html`, `/academics.html`, `/certificates.html`, and `/contact.html` retain complete HTML and enter the appropriate section.

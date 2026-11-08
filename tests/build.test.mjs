@@ -12,13 +12,7 @@ import { escape } from "../src/components.mjs";
 
 const out = resolve(import.meta.dirname, "../dist");
 const html = await readFile(resolve(out, "index.html"), "utf8");
-test("Text colors meet AA contrast on both paper surfaces", async () => {
-  const css = await readFile(
-    resolve(import.meta.dirname, "../css/style.css"),
-    "utf8",
-  );
-  const color = (name) =>
-    css.match(new RegExp(`--${name}:\\s*(#[a-f0-9]{6})`))[1];
+test("Text colors meet AA contrast in light and dark themes", async () => {
   const luminance = (hex) => {
     const rgb = hex
       .slice(1)
@@ -29,16 +23,27 @@ test("Text colors meet AA contrast on both paper surfaces", async () => {
       );
     return rgb[0] * 0.2126 + rgb[1] * 0.7152 + rgb[2] * 0.0722;
   };
-  for (const background of ["paper", "paper-dark"])
-    for (const foreground of ["ink", "muted", "accent"]) {
-      const ratio =
-        (luminance(color(background)) + 0.05) /
-        (luminance(color(foreground)) + 0.05);
-      assert.ok(
-        ratio >= 4.5,
-        `${foreground} on ${background}: ${ratio.toFixed(2)}`,
-      );
-    }
+  for (const themeFile of ["style.css", "theme.css"]) {
+    const css = await readFile(
+      resolve(import.meta.dirname, `../css/${themeFile}`),
+      "utf8",
+    );
+    const color = (name) =>
+      css.match(new RegExp(`--${name}:\\s*(#[a-f0-9]{6})`))[1];
+    for (const background of ["paper", "paper-dark"])
+      for (const foreground of ["ink", "muted", "accent"]) {
+        const values = [
+          luminance(color(background)),
+          luminance(color(foreground)),
+        ];
+        const ratio =
+          (Math.max(...values) + 0.05) / (Math.min(...values) + 0.05);
+        assert.ok(
+          ratio >= 4.5,
+          `${themeFile}: ${foreground} on ${background}: ${ratio.toFixed(2)}`,
+        );
+      }
+  }
 });
 test("Every internal anchor and dialog trigger resolves to a unique ID", () => {
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
